@@ -1,5 +1,7 @@
+import { useState } from "react";
 import languages from "./data/languages";
 function App() {
+  const [selectedLng, setSelectedLng] = useState(languages[0])
   return (
     <>
       <header>
@@ -9,14 +11,14 @@ function App() {
         {/* btn section */}
         <div>
           {languages.map((curLng) => (
-            <button key={curLng.id} className="btn btn-primary me-2">{curLng.title}</button>
+            <button onClick={() => {setSelectedLng(curLng)}} key={curLng.id} className="btn btn-primary me-2">{curLng.title}</button>
           ))}
         </div>
         {/* description section */}
         <div className="card mt-5">
           <div className="card-body">
-          <h3>{languages[0].title}</h3>
-          <p>{languages[0].description}</p>
+          <h3>{selectedLng.title}</h3>
+          <p>{selectedLng.description}</p>
           </div>
         </div>
       </main>
