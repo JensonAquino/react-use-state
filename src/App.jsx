@@ -1,10 +1,18 @@
-
+import languages from "./data/languages";
 function App() {
   return (
     <>
-      <h1>
-        hello
-      </h1>
+      <header>
+        <h1 className="m-2">Learn Web development</h1>
+      </header>
+      <main className="container my-5">
+        {/* btn section */}
+      <div>
+        {languages.map((curLng) => (
+          <button key={curLng.id} className="btn btn-primary me-2">{curLng.title}</button>
+        ))}
+      </div>  
+      </main>
     </>
   )
 }
